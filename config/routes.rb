@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :categoria
-  resources :produtos
-  resources :usuarios
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :usuario_backoffice do
+    resources :categoria
+    resources :produtos
+    resources :usuarios
+  end
 end

@@ -1,4 +1,4 @@
-class CategoriaController < ApplicationController
+class UsuarioBackoffice::CategoriaController < UsuarioBackofficeController
   before_action :set_categorium, only: %i[ show edit update destroy ]
 
   # GET /categoria or /categoria.json
