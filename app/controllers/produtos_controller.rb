@@ -1,4 +1,4 @@
-class UsuarioBackoffice::ProdutosController < UsuarioBackofficeController
+class ProdutosController < ApplicationController
   before_action :set_produto, only: %i[ show edit update destroy ]
 
   # GET /produtos or /produtos.json
