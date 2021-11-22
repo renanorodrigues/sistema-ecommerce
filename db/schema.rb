@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_105414) do
+ActiveRecord::Schema.define(version: 2021_11_22_105530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_11_22_105414) do
     t.string "descricao", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categorias_produtos", force: :cascade do |t|
+    t.bigint "categorias_id", null: false
+    t.bigint "produto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["categorias_id"], name: "index_categorias_produtos_on_categorias_id"
+    t.index ["produto_id"], name: "index_categorias_produtos_on_produto_id"
   end
 
   create_table "detalhes_vendas", force: :cascade do |t|
@@ -59,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_11_22_105414) do
     t.index ["usuario_id"], name: "index_vendas_on_usuario_id"
   end
 
+  add_foreign_key "categorias_produtos", "categorias", column: "categorias_id"
+  add_foreign_key "categorias_produtos", "produtos"
   add_foreign_key "detalhes_vendas", "produtos"
   add_foreign_key "detalhes_vendas", "vendas"
   add_foreign_key "vendas", "usuarios"
