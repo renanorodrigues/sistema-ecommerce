@@ -1,4 +1,4 @@
-class UsuarioBackoffice::UsuariosController < UsuarioBackofficeController
+class Loja::UsuariosController < LojaController
   before_action :set_usuario, only: %i[ show edit update destroy ]
 
   def index

@@ -1,4 +1,4 @@
-<%= form_with(model: [:usuario_backoffice, @usuario]) do |form| %>
+<%= form_with(model: [:loja, @usuario]) do |form| %>
   <% if usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :senha %>
-    <%= form.text_field :senha %>
+    <%= form.password_field :senha %>
   </div>
 
   <div class="field">
     <%= form.label :administrador %>
-    <%= form.text_field :administrador %>
+    <%= form.check_box :administrador %>
   </div>
 
   <div class="actions">
