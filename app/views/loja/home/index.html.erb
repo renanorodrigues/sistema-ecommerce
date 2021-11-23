@@ -1,0 +1,21 @@
+<h1>Seja Bem Vindo!</h1>
+<h3>Nossos produtos:</h3>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success].html_safe %>
+  </div>
+<% end %>
+
+<% if usuario_atual %>
+  <p>Bem vindo <%= usuario_atual.nome %> </p>
+  <%= link_to "Logout", logout_path %>
+<% else %>
+  <%= link_to "Login", new_session_path %>
+<% end %>
+
+<section class="produtos-main">
+  <% @produtos.map do |produto| %>
+    <p><%= produto.descricao %></p>
+  <% end %>
+</section>
