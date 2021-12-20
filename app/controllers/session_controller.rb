@@ -1,12 +1,12 @@
 class SessionController < ApplicationController
+  before_action :setar_usuario, only: %i(create)
+
   def new
     @usuario = Usuario.new
   end
 
   def create
-    @usuario = Usuario.find_by(email: usuario_params[:email])
-
-    if @usuario
+    if @usuario && @usuario.senha == usuario_params[:senha]
       session[:usuario_id] = @usuario.id
       redirect_to loja_loja_path, success: 'Login realizado com sucesso!'
     else
@@ -21,6 +21,10 @@ class SessionController < ApplicationController
   end
 
   private
+
+  def setar_usuario
+    @usuario ||= Usuario.find_by(email: usuario_params[:email])
+  end
 
   def usuario_params
     params.require(:usuario).permit(:email, :senha)

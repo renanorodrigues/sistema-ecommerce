@@ -1,4 +1,4 @@
-<div class="container d-flex align-middle justify-content-center">
+<div class="container d-flex align-items-center justify-content-center">
   <div class="row">
     <h2 class="mt-4">Login</h2>
 
@@ -15,7 +15,8 @@
         <%= form.password_field :senha, class: "form-control" %>
       </div>
 
-      <%= form.submit 'Submeter', class: "btn btn-primary" %>
+      <%= form.submit 'Acessar', class: "btn btn-primary" %>
+      <%= link_to 'Cadastrar-se', new_loja_usuario_path, class: "btn btn-info" %>
     <% end %>
   </div>
 </div>
