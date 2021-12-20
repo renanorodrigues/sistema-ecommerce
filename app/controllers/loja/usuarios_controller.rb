@@ -20,7 +20,7 @@ class Loja::UsuariosController < LojaController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: "Usuario was successfully created." }
+        format.html { redirect_to loja_usuario_path(@usuario), notice: "Usuario cadastrado com sucesso!" }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class Loja::UsuariosController < LojaController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: "Usuario was successfully updated." }
+        format.html { redirect_to @usuario, notice: "Usuario atualizado com sucesso!" }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,11 +50,12 @@ class Loja::UsuariosController < LojaController
   end
 
   private
-    def set_usuario
-      @usuario = Usuario.find(params[:id])
-    end
 
-    def usuario_params
-      params.require(:usuario).permit(:nome, :email, :endereco, :login, :senha, :administrador)
-    end
+  def set_usuario
+    @usuario = Usuario.find(params[:id])
+  end
+
+  def usuario_params
+    params.require(:usuario).permit(:nome, :email, :endereco, :login, :senha, :administrador)
+  end
 end

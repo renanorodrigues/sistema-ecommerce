@@ -1,5 +1,15 @@
-<h1>New Usuario</h1>
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <div class="row">
+      <h2 class="mt-4">Novo Usuário</h2>
+    </div>
 
-<%= render 'form', usuario: @usuario %>
+    <%= render 'form', usuario: @usuario %>
 
-<%= link_to 'Back', loja_usuarios_path %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to 'Voltar', loja_usuarios_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
