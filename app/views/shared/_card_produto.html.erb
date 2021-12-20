@@ -1,0 +1,14 @@
+<div class="col-md-3">
+  <div class="card">
+    <img src="product_default.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= produto.descricao %>
+      </h4>
+      <p class="text-danger">
+        <%= number_to_currency(produto.preco, unit: "R$ ", separator: ",", delimiter: "") %>
+      </p>
+      <%= link_to "Comprar", edit_produto_path(produto), class: "btn btn-danger text-light" %>
+    </div>
+  </div>
+</div>
