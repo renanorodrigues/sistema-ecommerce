@@ -43,8 +43,9 @@ class Loja::UsuariosController < LojaController
 
   def destroy
     @usuario.destroy
+    session[:usuario_id] = nil
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: "Usuario was successfully destroyed." }
+      format.html { redirect_to new_session_path, notice: 'Usuario foi removido com sucesso!' }
       format.json { head :no_content }
     end
   end
