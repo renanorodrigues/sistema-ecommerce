@@ -8,7 +8,7 @@ class SessionController < ApplicationController
   def create
     if @usuario && @usuario.senha == usuario_params[:senha]
       session[:usuario_id] = @usuario.id
-      redirect_to loja_loja_path, success: 'Login realizado com sucesso!'
+      redirect_to_root_path_user(@usuario)
     else
       flash.now[:notice] = 'Senha inválida ou email incorreto'
       render :new
@@ -24,6 +24,16 @@ class SessionController < ApplicationController
 
   def setar_usuario
     @usuario ||= Usuario.find_by(email: usuario_params[:email])
+  end
+
+  def redirect_to_root_path_user(usuario)
+    message_success = 'Login realizado com sucesso!'
+
+    if usuario.administrador?
+      redirect_to painel_path, success: message_success
+    else
+      redirect_to loja_loja_path, success: message_success
+    end
   end
 
   def usuario_params
