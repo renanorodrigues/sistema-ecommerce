@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :categorias
   resources :produtos
+
+  get 'painel', to: 'painel#index', as: :painel
 end
