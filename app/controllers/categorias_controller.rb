@@ -3,7 +3,6 @@ class CategoriasController < ApplicationController
 
   # GET /categoria or /categoria.json
   def index
-    byebug
     @categorias = Categoria.all
   end
 
@@ -26,7 +25,7 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.save
-        format.html { redirect_to @categoria, notice: "Categoria was successfully created." }
+        format.html { redirect_to @categoria, notice: "Categoria criada com sucesso!" }
         format.json { render :show, status: :created, location: @categoria }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +38,7 @@ class CategoriasController < ApplicationController
   def update
     respond_to do |format|
       if @categoria.update(categoria_params)
-        format.html { redirect_to @categoria, notice: "Categoria was successfully updated." }
+        format.html { redirect_to @categoria, notice: "Categoria atualizada com sucesso!" }
         format.json { render :show, status: :ok, location: @categoria }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +51,7 @@ class CategoriasController < ApplicationController
   def destroy
     @categoria.destroy
     respond_to do |format|
-      format.html { redirect_to categoria_url, notice: "Categoria was successfully destroyed." }
+      format.html { redirect_to categorias_path, notice: 'Categoria removida com sucesso!' }
       format.json { head :no_content }
     end
   end
