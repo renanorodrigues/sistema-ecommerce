@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @categorium.descricao %>
-</p>
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_categorium_path(@categorium) %> |
-<%= link_to 'Back', categoria_path %>
+    <p>
+      <strong>Descrição:</strong>
+      <%= @categoria.descricao %>
+    </p>
+
+    <%= link_to 'Editar', categoria_path(@categoria) %> |
+    <%= link_to 'Voltar', categorias_path %>
+  </div>
+</div>

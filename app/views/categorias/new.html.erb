@@ -1,5 +1,15 @@
-<h1>New Categorium</h1>
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <div class="row">
+      <h2 class="mt-4">Nova Categoria</h2>
+    </div>
 
-<%= render 'form', categorium: @categorium %>
+    <%= render 'form', categoria: @categoria %>
 
-<%= link_to 'Back', categoria_path %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to 'Voltar', categorias_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,13 @@
-<h1>Editing Categorium</h1>
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <div class="row">
+      <h2 class="mt-4">Editar Categoria</h2>
+    </div>
 
-<%= render 'form', categorium: @categorium %>
+    <%= render 'form', categoria: @categoria %>
 
-<%= link_to 'Show', @categorium %> |
-<%= link_to 'Back', categoria_path %>
+    <%= link_to 'Exibir', categoria_path(@categoria) %> |
+    <%= link_to 'Voltar', categorias_path %>
+    <%= link_to 'Remover', categoria_path(@categoria), method: :delete %>
+  </div>
+</div>
