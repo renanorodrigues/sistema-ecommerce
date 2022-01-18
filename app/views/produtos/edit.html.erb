@@ -1,6 +1,13 @@
-<h1>Editing Produto</h1>
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <div class="row">
+      <h2 class="mt-4">Editar Produto</h2>
+    </div>
 
-<%= render 'form', produto: @produto %>
+    <%= render 'form', produto: @produto %>
 
-<%= link_to 'Show', @produto %> |
-<%= link_to 'Back', produtos_path %>
+    <%= link_to 'Exibir', @produto %> |
+    <%= link_to 'Voltar', produtos_path %>
+    <%= link_to 'Remover produto', produto_path(@produto), method: :delete %>
+  </div>
+</div>
