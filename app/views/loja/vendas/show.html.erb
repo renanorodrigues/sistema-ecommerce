@@ -1,0 +1,21 @@
+<h1>Detalhes da Venda</h1>
+
+<h4>Compras realizadas pelo usuário: <%= @venda.usuario.nome %></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venda.detalhes_vendas.map do |detalhe| %>
+      <tr>
+        <td><%= detalhe.produto.descricao %></td>
+        <td><%= detalhe.quantidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+<div class="container d-flex flex-column">
+  <div class="justify-content-center">
+    <div class="row">
+      <p id="notice"><%= notice %></p>
+    </div>
+
+    <h1>Vendas</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Comprador</th>
+          <th>Hora da compra</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @vendas.each do |venda| %>
+          <tr>
+            <td><%= venda.id %></td>
+            <td><%= venda.usuario.login %></td>
+            <td><%= venda.data_hora %></td>
+            <td><%= link_to 'Exibir', loja_venda_path(venda) %></td>
+            <td><%= link_to 'Remover', loja_venda_path(venda), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <%= link_to 'Voltar', painel_path, class: 'btn btn-primary text-white' %>
+</div>

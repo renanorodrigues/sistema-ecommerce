@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :loja do
     root :to => 'home#index', as: :loja
     resources :usuarios
+    resources :vendas
   end
 
   resources :categorias
